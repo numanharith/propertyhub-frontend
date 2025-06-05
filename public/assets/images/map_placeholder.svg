@@ -1,0 +1,15 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="400" fill="#E0F2F7"/>
+<path d="M50 350 C100 300, 150 280, 200 300 S300 350, 350 320 S450 250, 500 280 L550 350 H50 Z" fill="#B2EBF2" stroke="#80DEEA" stroke-width="2"/>
+<path d="M80 150 C120 100, 180 80, 220 120 S300 200, 350 160 S450 80, 500 100" stroke="#4DD0E1" stroke-width="3" fill="none" stroke-dasharray="5 5"/>
+<path d="M300 50 L320 80 L350 70 L340 100 L370 110 L350 130 L320 120 L300 140 L280 120 L250 130 L230 110 L260 100 L250 70 L280 80 Z" fill="#00ACC1"/>
+<circle cx="150" cy="250" r="10" fill="#FF5252" stroke="#B71C1C" stroke-width="2"/>
+<text x="150" y="245" fill="white" font-size="10" text-anchor="middle" font-family="Arial">P1</text>
+<circle cx="400" cy="150" r="10" fill="#FF5252" stroke="#B71C1C" stroke-width="2"/>
+<text x="400" y="145" fill="white" font-size="10" text-anchor="middle" font-family="Arial">P2</text>
+<circle cx="280" cy="320" r="10" fill="#FF5252" stroke="#B71C1C" stroke-width="2"/>
+<text x="280" y="315" fill="white" font-size="10" text-anchor="middle" font-family="Arial">P3</text>
+<rect x="0" y="0" width="600" height="400" stroke="#78909C" stroke-width="3"/>
+<text x="300" y="30" font-family="Arial, sans-serif" font-size="20" fill="#37474F" text-anchor="middle">Map Area Placeholder</text>
+</svg>
+

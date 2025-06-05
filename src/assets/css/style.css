@@ -1,0 +1,64 @@
+/* Content from provided css/style.css, adapted for Tailwind's theme() function if used within @apply or plugins */
+/* For direct CSS, replace theme() with actual values or CSS variables mapped from Tailwind config */
+
+/* Header shrink on scroll */
+/* This logic is typically handled by JS adding/removing classes in React, Tailwind classes then apply styles */
+/* .header-scrolled in React would be a conditional className */
+
+.property-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.property-card:hover {
+    transform: translateY(-5px);
+    /* Tailwind's shadow-lg or shadow-xl can be used directly or customize */
+}
+
+/* Example: If hero-section needs gradient not easily done with Tailwind classes directly */
+.hero-section {
+  /* This type of gradient is directly achievable with Tailwind: bg-gradient-to-r from-primary to-secondary */
+  /* If specific theme() values are needed and this file is processed by PostCSS with Tailwind: */
+  /* background-image: linear-gradient(to right, theme('colors.primary.DEFAULT'), theme('colors.secondary.DEFAULT')); */
+}
+
+/* .search-status-btn.active in React would be conditional className */
+/* For example: className={`search-status-btn ${isActive ? 'bg-primary text-white' : 'bg-gray-200'}`} */
+
+
+/* Dashboard specific styles */
+/* .dashboard-nav-item.active-nav in React uses NavLink's isActive prop for conditional styling */
+/* e.g. <NavLink className={({ isActive }) => isActive ? 'active-dashboard-styles' : 'default-styles'} ... /> */
+
+/* For Property Details Image Gallery */
+.gallery-image {
+    max-height: 500px; /* Or any desired max height */
+    object-fit: cover; /* Tailwind: object-cover */
+}
+
+/* Custom scrollbar for filter amenities list */
+/* These can be kept if custom scrollbars are desired beyond browser defaults */
+.max-h-40.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.max-h-40.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1; /* theme('colors.gray.100') */
+  border-radius: 10px;
+}
+.max-h-40.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #bdbdbd; /* theme('colors.gray.400') */
+  border-radius: 10px;
+}
+.max-h-40.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #888; /* theme('colors.gray.500') */
+}
+
+/* To ensure sticky header and dashboard sidebar play nice on mobile */
+@media (max-width: 767px) { /* md breakpoint in Tailwind is 768px */
+    body.sidebar-open { /* This class would be toggled by JS in React */
+        overflow: hidden;
+    }
+    /* #main-header.sticky logic handled by React state/Tailwind classes */
+}
+
+/* For the photo previews in add listing form */
+/* This can be styled directly with Tailwind on the img elements in the React component */
+/* Example: className="w-full h-24 object-cover rounded-md border border-gray-300" */

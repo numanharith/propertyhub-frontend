@@ -1,0 +1,26 @@
+import apiClient from './apiClient';
+import { UserLoginRequest, UserRegistrationRequest, AuthResponse } from '@/types/api';
+
+export const login = async (credentials: UserLoginRequest): Promise<AuthResponse> => {
+  // MOCK IMPLEMENTATION
+  console.log('Attempting login with:', credentials);
+  if (credentials.email === 'user@example.com' && credentials.password === 'password') {
+    const mockUser = { id: '1', username: 'Test User', email: 'user@example.com', role: 'lister' as 'lister' };
+    const mockResponse: AuthResponse = { jwtToken: 'mock-jwt-token', user: mockUser };
+    return Promise.resolve(mockResponse);
+  } else {
+    return Promise.reject(new Error('Invalid credentials'));
+  }
+  // const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
+  // return response.data;
+};
+
+export const register = async (userData: UserRegistrationRequest): Promise<void> => {
+  // MOCK IMPLEMENTATION
+  console.log('Attempting registration with:', userData);
+  if (userData.email === 'existing@example.com') {
+    return Promise.reject(new Error('Email already exists'));
+  }
+  return Promise.resolve();
+  // await apiClient.post('/auth/register', userData);
+};
