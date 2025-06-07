@@ -48,19 +48,8 @@ export const getPropertyById = async (id: string): Promise<PropertyDetail> => {
 
 export const createProperty = async (propertyData: PropertyCreateUpdateRequest): Promise<PropertyDetail> => {
   console.log('Creating property with data:', propertyData);
-  // MOCK IMPLEMENTATION
-  const newProperty: PropertyDetail = {
-    id: String(mockProperties.length + 1),
-    ...propertyData,
-    mainImageUrl: propertyData.imageUrls.length > 0 ? propertyData.imageUrls[0] : '/assets/images/property_placeholder_1.svg',
-    areaSqFt: propertyData.areaSqFt,
-    lister: { id: 'current_user_id', username: 'Current User' }, // Mock lister
-    dateAdded: new Date().toISOString().split('T')[0],
-  };
-  mockProperties.push(newProperty as any); // Add to mock data store
-  return Promise.resolve(newProperty);
-  // const response = await apiClient.post<PropertyDetail>('/properties', propertyData);
-  // return response.data;
+  const response = await apiClient.post<PropertyDetail>('/properties', propertyData);
+  return response.data;
 };
 
 export const updateProperty = async (id: string, propertyData: PropertyCreateUpdateRequest): Promise<PropertyDetail> => {
