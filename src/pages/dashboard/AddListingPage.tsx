@@ -12,7 +12,7 @@ const initialFormState: PropertyCreateUpdateRequest = {
   description: '',
   price: 0,
   location: '',
-  address: '', // Can be same as location or more specific
+  address: '', // Can be same as location or more specific  
   propertyType: 'Condo',
   listingType: 'For Sale',
   bedrooms: 1,

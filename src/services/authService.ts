@@ -21,6 +21,6 @@ export const register = async (userData: UserRegistrationRequest): Promise<void>
   if (userData.email === 'existing@example.com') {
     return Promise.reject(new Error('Email already exists'));
   }
+  await apiClient.post('/auth/register', userData);
   return Promise.resolve();
-  // await apiClient.post('/auth/register', userData);
 };

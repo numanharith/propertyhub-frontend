@@ -1,9 +1,9 @@
+/* Import custom styles */
+@import './assets/css/style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import custom styles */
-@import './assets/css/style.css';
 
 body {
   -webkit-font-smoothing: antialiased;
