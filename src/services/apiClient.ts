@@ -26,8 +26,8 @@ apiClient.interceptors.response.use(
   (error) => {
     // Handle errors globally if needed (e.g., 401 for logout)
     if (error.response && error.response.status === 401) {
-      // localStorage.removeItem('authToken');
-      // localStorage.removeItem('authUser');
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('authUser');
       // Potentially redirect to login: window.location.href = '/auth';
       console.error('Unauthorized access - 401');
     }

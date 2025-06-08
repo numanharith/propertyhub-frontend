@@ -2,8 +2,6 @@ import apiClient from './apiClient';
 import { UserLoginRequest, UserRegistrationRequest, AuthResponse } from '@/types/api';
 
 export const login = async (credentials: UserLoginRequest): Promise<AuthResponse> => {
-  // MOCK IMPLEMENTATION
-  console.log('Attempting login with:', credentials);
   const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
   return response.data;
 };

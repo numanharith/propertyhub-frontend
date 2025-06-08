@@ -1,3 +1,5 @@
+type UserRoles = "ROLE_SEEKER" | "ROLE_LISTER" | "ROLE_ADMIN";
+
 export interface UserRegistrationRequest {
   username: string;
   email: string;
@@ -13,7 +15,9 @@ export interface UserLoginRequest {
 
 export interface AuthResponse {
   jwtToken: string;
-  user: UserDetails; // Added user details to auth response for convenience
+  role: UserRoles;
+  userId: string;
+  username: string;
 }
 
 export interface UserDetails {
@@ -22,7 +26,7 @@ export interface UserDetails {
   email: string;
   firstName?: string;
   lastName?: string;
-  role: 'seeker' | 'lister' | 'admin'; // Example roles
+  role: UserRoles;
 }
 
 export interface PropertySummary {
@@ -89,16 +93,16 @@ export interface PropertyQueryFilters {
   amenities?: string[]; // Added from mock filter form
   sizeMin?: number; // Added from mock filter form
   sizeMax?: number; // Added from mock filter form
-  sortBy?: 'relevance' | 'price_asc' | 'price_desc' | 'date_desc'; // Added from mock sort
+  sortBy?: "relevance" | "price_asc" | "price_desc" | "date_desc"; // Added from mock sort
 }
 
 // Mock Agent type based on property_details_page.js
 export interface AgentInfo {
-    name: string;
-    agency: string;
-    phone: string;
-    email: string;
-    avatar: string;
+  name: string;
+  agency: string;
+  phone: string;
+  email: string;
+  avatar: string;
 }
 
 // Extending PropertyDetail for consistency with mock data used in PropertyDetailsPage

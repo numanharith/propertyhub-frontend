@@ -15,12 +15,10 @@ const DashboardOverviewPage: React.FC = () => {
       if (!user) return;
       setIsLoading(true);
       try {
-        // In a real API, you'd filter by user ID. Here, we mock it.
-        // Let's assume first 5 properties are by this user for mock.
         const response = await propertyService.getProperties({ size: 100 }); // Fetch all for mock filtering
-        // Simple mock filter: assume properties with agent name "Jane Smith" or ID <= 2 are the user's
-        const userListings = response.data.filter(p => (p.lister && p.lister.username === user.username) || (p.id && parseInt(p.id) <= 2));
-        setListings(userListings);
+        // const userListings = response.content.filter(p => (p.lister && p.lister.username === user.username) || (p.id && parseInt(p.id) <= 2));
+
+        setListings(response.content);
       } catch (error) {
         console.error("Failed to fetch dashboard data:", error);
       } finally {

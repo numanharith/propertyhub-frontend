@@ -35,7 +35,7 @@ const PropertyDetailsPage: React.FC = () => {
 
         // Fetch similar properties (mock implementation)
         const allPropsResponse = await propertyService.getProperties({size: 4}); // Fetch a few
-        const similar = allPropsResponse.data.filter(p => p.id !== id).slice(0,3) as unknown as PropertyDetail[];
+        const similar = allPropsResponse.content.filter(p => p.id !== id).slice(0,3) as unknown as PropertyDetail[];
         setSimilarProperties(similar);
 
       } catch (err: any) {

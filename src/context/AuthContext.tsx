@@ -1,6 +1,6 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { UserDetails, UserLoginRequest, AuthResponse } from '@/types/api';
-import * as authService from '@/services/authService';
+import React, { createContext, useState, useEffect, ReactNode } from "react";
+import { UserDetails, UserLoginRequest, AuthResponse } from "@/types/api";
+import * as authService from "@/services/authService";
 
 interface AuthContextType {
   user: UserDetails | null;
@@ -12,16 +12,22 @@ interface AuthContextType {
   register: (userData: any) => Promise<void>; // Use specific type later
 }
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [user, setUser] = useState<UserDetails | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('authToken'));
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem("authToken")
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('authToken');
-    const storedUser = localStorage.getItem('authUser');
+    const storedToken = localStorage.getItem("authToken");
+    const storedUser = localStorage.getItem("authUser");
     if (storedToken && storedUser) {
       setToken(storedToken);
       setUser(JSON.parse(storedUser));
@@ -33,10 +39,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     try {
       setIsLoading(true);
       const response: AuthResponse = await authService.login(credentials);
-      setUser(response.user);
+      const user: UserDetails = {
+        id: response.userId,
+        username: response.username,
+        email: response.username,
+        role: response.role,
+      };
+      setUser(user);
       setToken(response.jwtToken);
-      localStorage.setItem('authToken', response.jwtToken);
-      localStorage.setItem('authUser', JSON.stringify(response.user));
+      localStorage.setItem("authToken", response.jwtToken);
+      localStorage.setItem("authUser", JSON.stringify(user));
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -61,12 +73,22 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const logout = () => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('authUser');
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("authUser");
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, isAuthenticated: !!token, isLoading, login, logout, register }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        token,
+        isAuthenticated: !!token,
+        isLoading,
+        login,
+        logout,
+        register,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

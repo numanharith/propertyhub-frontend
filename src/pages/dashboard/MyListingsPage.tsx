@@ -19,11 +19,10 @@ const MyListingsPage: React.FC = () => {
       if (!user) return;
       setIsLoading(true);
       try {
-        // Mock: filter all properties to simulate fetching user's own.
-        // In a real app, the backend would provide an endpoint like /api/v1/users/me/properties
         const response = await propertyService.getProperties({size: 100}); // Fetch all for mock
-        const userListings = response.data.filter(p => (p.lister && p.lister.username === user.username) || (p.id && parseInt(p.id) <= 2) ); // Example mock filter
-        setMyListings(userListings);
+        // const userListings = response.content.filter(p => (p.lister && p.lister.username === user.username) || (p.id && parseInt(p.id) <= 2) ); // Example mock filter
+        console.log(response)
+        setMyListings(response.content);
       } catch (error) {
         console.error("Failed to fetch user listings:", error);
       } finally {
