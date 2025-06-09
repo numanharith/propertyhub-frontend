@@ -54,10 +54,8 @@ export interface PropertyDetail extends PropertySummary {
   imageUrls: string[];
   lister: {
     id: string;
-    username: string;
-    avatar?: string; // from mock data
-    agency?: string; // from mock data
-    phone?: string; // from mock data
+    fullName: string;
+    phone: string;
   };
 }
 

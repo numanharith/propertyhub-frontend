@@ -95,7 +95,7 @@ const SearchResultsPage: React.FC = () => {
   // Initial filters from URL for the top search form
   const initialSearchFormValues = {
     location: searchParams.get("location") || "",
-    propertyType: searchParams.get("property_type") || "",
+    propertyType: searchParams.get("propertyType") || "",
     listingType: (searchParams.get("status") as "buy" | "rent") || "buy",
   };
 

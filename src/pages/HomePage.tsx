@@ -15,7 +15,6 @@ const HomePage: React.FC = () => {
     const fetchFeatured = async () => {
       try {
         setIsLoading(true);
-        // For mock, let's simulate fetching featured. In a real API, this might be a specific endpoint or query param.
         const response = await propertyService.getProperties({ size: 3 }); // Fetch first 3 as "featured"
         setFeaturedProperties(response.content);
       } catch (error) {

@@ -24,7 +24,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title, onToggleSideba
         </button>
         <img src={userAvatar} alt="User Avatar" className="w-8 h-8 rounded-full" />
         <span className="text-sm text-gray-600 hidden sm:inline">
-          {user?.firstName || user?.username || 'User'} ({user?.role || 'Lister'})
+          {user?.firstName || user?.username || 'User'}
         </span>
       </div>
     </header>

@@ -32,7 +32,7 @@ const PropertySearchForm: React.FC<PropertySearchFormProps> = ({
     e.preventDefault();
     const queryParams = new URLSearchParams();
     if (location) queryParams.set("location", location);
-    if (propertyType) queryParams.set("property_type", propertyType);
+    if (propertyType) queryParams.set("propertyType", propertyType);
     queryParams.set("status", listingType);
 
     navigate(`/search_results?${queryParams.toString()}`);

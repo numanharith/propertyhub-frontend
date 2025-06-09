@@ -19,7 +19,7 @@ const MyListingsPage: React.FC = () => {
       if (!user) return;
       setIsLoading(true);
       try {
-        const response = await propertyService.getProperties({size: 100}); // Fetch all for mock
+        const response = await propertyService.getPropertiesByUser({size: 100}); // Fetch all for mock
         // const userListings = response.content.filter(p => (p.lister && p.lister.username === user.username) || (p.id && parseInt(p.id) <= 2) ); // Example mock filter
         console.log(response)
         setMyListings(response.content);

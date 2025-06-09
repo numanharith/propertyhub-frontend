@@ -33,11 +33,9 @@ const PropertyDetailsPage: React.FC = () => {
         setProperty(fetchedProperty);
         document.title = `${fetchedProperty.title} - PropertyHub`;
 
-        // Fetch similar properties (mock implementation)
         const allPropsResponse = await propertyService.getProperties({size: 4}); // Fetch a few
         const similar = allPropsResponse.content.filter(p => p.id !== id).slice(0,3) as unknown as PropertyDetail[];
         setSimilarProperties(similar);
-
       } catch (err: any) {
         setError(err.message || "Failed to fetch property details.");
       } finally {
@@ -156,10 +154,9 @@ const PropertyDetailsPage: React.FC = () => {
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Contact Lister</h2>
               {property.lister && (
                 <div className="flex items-center mb-4">
-                  <img src={property.lister.avatar || "https://i.pravatar.cc/150"} alt={property.lister.username} className="w-16 h-16 rounded-full mr-4 object-cover" />
+                  <img src={"https://i.pravatar.cc/150"} alt={property.lister.fullName} className="w-16 h-16 rounded-full mr-4 object-cover" />
                   <div>
-                    <p className="font-semibold text-lg text-primary">{property.lister.username}</p>
-                    {property.lister.agency && <p className="text-sm text-gray-600">{property.lister.agency}</p>}
+                    <p className="font-semibold text-lg text-primary">{property.lister.fullName}</p>
                   </div>
                 </div>
               )}

@@ -7,11 +7,6 @@ export const login = async (credentials: UserLoginRequest): Promise<AuthResponse
 };
 
 export const register = async (userData: UserRegistrationRequest): Promise<void> => {
-  // MOCK IMPLEMENTATION
-  console.log('Attempting registration with:', userData);
-  if (userData.email === 'existing@example.com') {
-    return Promise.reject(new Error('Email already exists'));
-  }
   await apiClient.post('/auth/register', userData);
   return Promise.resolve();
 };
