@@ -127,7 +127,7 @@ const SearchResultsPage: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-8">
         <aside className="w-full lg:w-1/4">
           <PropertyFilters
-            initialFilters={currentFilters}
+            filters={currentFilters}
             onFilterChange={handleFilterChange}
           />
         </aside>
@@ -150,7 +150,7 @@ const SearchResultsPage: React.FC = () => {
                     sortBy: e.target.value as PropertyQueryFilters["sortBy"],
                   })
                 }
-                className="px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary bg-white text-sm"
+                className="px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary bg-white text-sm min-w-[180px]"
               >
                 <option value="relevance">Sort by: Relevance</option>
                 <option value="price_asc">Price: Low to High</option>
