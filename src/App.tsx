@@ -29,6 +29,7 @@ import MyListingsPage from './pages/dashboard/MyListingsPage';
 import ProfilePage from './pages/dashboard/ProfilePage';
 import InquiriesPage from './pages/dashboard/InquiriesPage';
 import PropertyDetailsPage from './pages/PropertyDetailsPage';
+import PropertyEditForm from './pages/PropertyEditForm';
 
 // Route configuration for public routes
 const publicRoutes = [
@@ -79,6 +80,7 @@ const App: React.FC = () => {
             <Route path="overview" element={<DashboardOverviewPage />} />
             <Route path="my-listings" element={<MyListingsPage />} />
             <Route path="add-listing" element={<AddListingPage />} />
+            <Route path="edit-listing/:id" element={<PropertyEditForm />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="inquiries" element={<InquiriesPage />} />
           </Route>

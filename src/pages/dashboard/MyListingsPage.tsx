@@ -64,41 +64,43 @@ const MyListingsPage: React.FC = () => {
           <table className="w-full min-w-max">
             <thead>
               <tr className="border-b">
-                <th className="text-left p-3 text-sm font-semibold text-gray-600">Property</th>
-                <th className="text-left p-3 text-sm font-semibold text-gray-600">Status</th>
-                <th className="text-left p-3 text-sm font-semibold text-gray-600 hidden sm:table-cell">Price</th>
-                <th className="text-left p-3 text-sm font-semibold text-gray-600 hidden md:table-cell">Views</th>
-                <th className="text-left p-3 text-sm font-semibold text-gray-600 hidden md:table-cell">Inquiries</th>
-                <th className="text-left p-3 text-sm font-semibold text-gray-600">Actions</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600">Property</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600">Status</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600 hidden sm:table-cell">Price</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600 hidden md:table-cell">Views</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600 hidden md:table-cell">Inquiries</th>
+                <th className="text-center p-3 text-sm font-semibold text-gray-600">Actions</th>
               </tr>
             </thead>
             <tbody>
               {myListings.map(prop => (
                 <tr key={prop.id} className="border-b hover:bg-gray-50 transition-colors">
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     <div className="font-medium text-gray-800">{prop.title}</div>
                     <div className="text-xs text-gray-500">{prop.location}</div>
                   </td>
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     <span className={`px-2 py-1 text-xs font-semibold rounded-full ${ (prop.status || prop.listingType) === 'For Sale' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
                       {prop.status || prop.listingType}
                     </span>
                   </td>
-                  <td className="p-3 text-sm text-gray-700 hidden sm:table-cell">
+                  <td className="p-3 text-sm text-gray-700 text-center hidden sm:table-cell">
                     {formatPrice(prop.price)} {(prop.status || prop.listingType) === 'For Rent' ? '/mo' : ''}
                   </td>
-                  <td className="p-3 text-sm text-gray-700 hidden md:table-cell">{Math.floor(Math.random() * 500)}</td>
-                  <td className="p-3 text-sm text-gray-700 hidden md:table-cell">{Math.floor(Math.random() * 10)}</td>
-                  <td className="p-3">
-                    <Link to={`/dashboard/edit-listing/${prop.id}`} className="text-primary hover:text-primary-dark p-1 inline-block" title="Edit">
-                      <Edit2 className="w-4 h-4" />
-                    </Link>
-                    <button onClick={() => handleDelete(prop.id)} className="text-red-500 hover:text-red-700 p-1" title="Delete">
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                    <Link to={`/properties/${prop.id}`} target="_blank" className="text-gray-500 hover:text-gray-700 p-1 inline-block" title="View">
-                      <EyeIcon className="w-4 h-4" />
-                    </Link>
+                  <td className="p-3 text-sm text-gray-700 text-center hidden md:table-cell">{Math.floor(Math.random() * 500)}</td>
+                  <td className="p-3 text-sm text-gray-700 text-center hidden md:table-cell">{Math.floor(Math.random() * 10)}</td>
+                  <td className="p-3 text-center">
+                    <div className="flex justify-center items-center gap-1">
+                      <Link to={`/dashboard/edit-listing/${prop.id}`} className="text-primary hover:text-primary-dark p-1 inline-block" title="Edit">
+                        <Edit2 className="w-4 h-4" />
+                      </Link>
+                      <button onClick={() => handleDelete(prop.id)} className="text-red-500 hover:text-red-700 p-1" title="Delete">
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                      <Link to={`/properties/${prop.id}`} target="_blank" className="text-gray-500 hover:text-gray-700 p-1 inline-block" title="View">
+                        <EyeIcon className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </td>
                 </tr>
               ))}
