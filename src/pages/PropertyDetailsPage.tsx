@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { PropertyDetailMock as PropertyDetail } from '@/types/api'; // Using extended mock type
 import * as propertyService from '@/services/propertyService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';

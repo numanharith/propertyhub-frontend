@@ -19,7 +19,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_1.svg",
         lister: {
             id: "agent1",
-            username: "Jane Smith",
+            fullName: "Jane Smith",
             agency: "Luxury Homes SG",
             phone: "+65 9876 5432",
             avatar: "https://i.pravatar.cc/150?u=agent1"
@@ -43,7 +43,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_2.svg",
         lister: {
             id: "agent2",
-            username: "Robert Tan",
+            fullName: "Robert Tan",
             agency: "Heartland Realty",
             phone: "+65 9123 4567",
             avatar: "https://i.pravatar.cc/150?u=agent2"
@@ -67,7 +67,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_3.svg",
         lister: {
             id: "agent3",
-            username: "Michelle Lim",
+            fullName: "Michelle Lim",
             agency: "Prestige Properties",
             phone: "+65 8888 7777",
             avatar: "https://i.pravatar.cc/150?u=agent3"
@@ -91,7 +91,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_1.svg",
         lister: {
             id: "agent4",
-            username: "David Lee",
+            fullName: "David Lee",
             agency: "City Living Rentals",
             phone: "+65 9999 0000",
             avatar: "https://i.pravatar.cc/150?u=agent4"
@@ -115,7 +115,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_2.svg",
         lister: {
             id: "agent5",
-            username: "Sarah Chen",
+            fullName: "Sarah Chen",
             agency: "SG Property Deals",
             phone: "+65 9777 6666",
             avatar: "https://i.pravatar.cc/150?u=agent5"
@@ -139,7 +139,7 @@ export const mockProperties: PropertyDetail[] = [
         mainImageUrl: "/assets/images/property_placeholder_3.svg",
         lister: {
             id: "agent1", // Same agent as property 1 for testing user listings
-            username: "Jane Smith",
+            fullName: "Jane Smith",
             agency: "Luxury Homes SG",
             phone: "+65 9876 5432",
             avatar: "https://i.pravatar.cc/150?u=agent1"

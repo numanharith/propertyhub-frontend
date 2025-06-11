@@ -37,7 +37,7 @@ const SearchResultsPage: React.FC = () => {
         } else if (key === "amenities") {
           params[key] = value.split(",");
         } else {
-          params[key as keyof PropertyQueryFilters] = value;
+          (params as any)[key] = value;
         }
       });
       return params;

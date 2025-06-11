@@ -1,15 +1,20 @@
 import React, { createContext, useState, useEffect, ReactNode } from "react";
-import { UserDetails, UserLoginRequest, AuthResponse } from "@/types/api";
-import * as authService from "@/services/authService";
+import { UserDetails, UserLoginRequest, AuthResponse, AgentTierDto, UserSubscriptionDto, UserDashboardResponse } from "../types/api";
+import * as authService from "../services/authService";
 
 interface AuthContextType {
   user: UserDetails | null;
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  userType: string | null;
   login: (credentials: UserLoginRequest) => Promise<void>;
   logout: () => void;
   register: (userData: any) => Promise<void>; // Use specific type later
+  dashboardData: UserDashboardResponse | null;
+  userTier: AgentTierDto | null;
+  userSubscription: UserSubscriptionDto | null;
+  refreshUser: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -24,6 +29,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     localStorage.getItem("authToken")
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [dashboardData, setDashboardData] = useState<UserDashboardResponse | null>(null);
+  const [userTier, setUserTier] = useState<AgentTierDto | null>(null);
+  const [userSubscription, setUserSubscription] = useState<UserSubscriptionDto | null>(null);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
@@ -70,9 +78,27 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
+  const refreshUser = async () => {
+    // Placeholder for dashboard data refresh
+    try {
+      setIsLoading(true);
+      // const dashboardResponse = await userService.getUserDashboard();
+      // setDashboardData(dashboardResponse);
+      // setUserTier(dashboardResponse.tier);
+      // setUserSubscription(dashboardResponse.subscription);
+    } catch (error) {
+      console.error("Failed to refresh user data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const logout = () => {
     setUser(null);
     setToken(null);
+    setDashboardData(null);
+    setUserTier(null);
+    setUserSubscription(null);
     localStorage.removeItem("authToken");
     localStorage.removeItem("authUser");
   };
@@ -84,12 +110,18 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         token,
         isAuthenticated: !!token,
         isLoading,
+        userType: user?.userType || null,
         login,
         logout,
         register,
+        dashboardData,
+        userTier,
+        userSubscription,
+        refreshUser,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
+

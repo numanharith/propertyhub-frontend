@@ -9,7 +9,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 import { Save } from 'lucide-react';
 
 const ProfilePage: React.FC = () => {
-  const { user, isLoading: authLoading, login } = useAuth(); // Assuming login can refresh user context
+  const { user, isLoading: authLoading } = useAuth();
   const [formData, setFormData] = useState<Partial<UserDetails>>({
     firstName: '',
     lastName: '',
@@ -60,13 +60,10 @@ const ProfilePage: React.FC = () => {
     setSuccess(null);
     setIsSubmitting(true);
     try {
-      const updatedUser = await userService.updateMyDetails(formData);
+      await userService.updateMyDetails(formData);
       setSuccess('Profile updated successfully!');
       // Refresh auth context if needed, e.g. by calling login again with existing token or specific refresh user method
       // For mock, assume the updateMyDetails also updates local storage used by AuthContext
-      if (user && user.email && user.password) { // This is a hack for mock
-          await login({ email: user.email, password: user.password });
-      }
 
     } catch (err: any) {
       setError(err.message || "Failed to update profile.");

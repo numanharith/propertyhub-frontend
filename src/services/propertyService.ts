@@ -3,8 +3,11 @@ import {
   PropertyDetail,
   PropertyQueryFilters,
   PropertySummary,
+  CreateFsboListingRequest,
+  ListingResponse,
 } from "@/types/api";
 import apiClient from "./apiClient";
+import api from "./api";
 
 export const getProperties = async (
   filters?: PropertyQueryFilters
@@ -61,3 +64,21 @@ export const deleteProperty = async (id: string): Promise<void> => {
   console.log("Deleting property ID:", id);
   await apiClient.delete(`/properties/${id}`);
 };
+
+/**
+ * Creates a new For Sale By Owner (FSBO) listing.
+ * Requires the authenticated user to have the 'OWNER' role.
+ * @param data - The data for the new FSBO listing.
+ * @returns A promise resolving with the created listing response.
+ */
+export const createFsboListing = async (data: CreateFsboListingRequest): Promise<ListingResponse> => {
+  console.log("Creating FSBO listing with data:", data);
+  const response = await api.post<ListingResponse>('/listings/fsbo', data);
+  return response.data;
+};
+
+// Additional listing-related methods can be added here as needed
+// For example:
+// export const getListingById = async (id: number): Promise<ListingDetailsResponse> => { ... }
+// export const updateListing = async (id: number, data: UpdateListingRequest): Promise<ListingResponse> => { ... }
+

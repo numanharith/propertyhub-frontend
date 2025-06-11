@@ -1,0 +1,11 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#E0E0E0"/>
+<path d="M60 240 Q100 180 150 200 T250 160 Q300 120 340 180 L340 240 H60 Z" fill="#BDBDBD"/>
+<rect x="80" y="100" width="60" height="40" fill="#B0BEC5"/>
+<rect x="150" y="120" width="40" height="60" fill="#B0BEC5"/>
+<rect x="240" y="90" width="50" height="50" fill="#B0BEC5"/>
+<circle cx="320" cy="70" r="30" fill="#A5D6A7"/>
+<rect x="0" y="0" width="400" height="300" stroke="#9E9E9E" stroke-width="2"/>
+<text x="200" y="280" font-family="Arial, sans-serif" font-size="16" fill="#757575" text-anchor="middle">Property Placeholder 1</text>
+</svg>
+
